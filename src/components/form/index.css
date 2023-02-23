@@ -1,0 +1,28 @@
+.form__field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: max-content;
+  height: 90px;
+}
+
+.form__input {
+  margin-bottom: 8px;
+  width: 250px;
+  height: 24px;
+}
+
+.form__label {
+  margin-bottom: 8px;
+}
+
+.form__error-active {
+  display: block;
+  color: red;
+  font-size: 14px;
+}
+
+.form__error-inactive {
+  visibility: hidden;
+}
