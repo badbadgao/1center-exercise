@@ -1,0 +1,14 @@
+.createAccount {
+  width: 100%;
+  height: 100%;
+}
+
+.createAccount__form {
+  display: flex;
+  width: max-content;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: auto;
+  margin-top: 160px;
+}

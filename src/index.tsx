@@ -1,17 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from 'pages/App';
+import CreateAccount from 'pages/CreateAccount';
+import BusinessDetails from 'pages/BusinessDetails';
 import reportWebVitals from './reportWebVitals';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AppWrapper from './pages/AppWrapper';
+import OnBoard from 'pages/OnBoard';
+
+const router = createBrowserRouter([
+  {
+    path: '/onboard',
+    element: (
+      <AppWrapper>
+        <OnBoard />
+      </AppWrapper>
+    ),
+  },
+  {
+    path: '/signup/create-account',
+    element: (
+      <AppWrapper>
+        <CreateAccount />
+      </AppWrapper>
+    ),
+  },
+  {
+    path: '/signup/business-details',
+    element: (
+      <AppWrapper>
+        <BusinessDetails />
+      </AppWrapper>
+    ),
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );
 

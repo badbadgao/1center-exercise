@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import Button from 'components/Button';
@@ -17,8 +17,9 @@ interface IFormInput {
 }
 
 const OnBoard = (): JSX.Element => {
-  const { profileService } = services;
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>('');
+  const { profileService } = services;
 
   const schema = yup
     .object()
@@ -36,16 +37,14 @@ const OnBoard = (): JSX.Element => {
   });
 
   const onSubmitHandler = () => {
-    const userProfile = profileService.getUserProfileByEmail(email);
+    const userProfile = profileService.getUserAccount(email);
 
     if (userProfile) {
       console.log('Existing user, go to login page');
     } else {
-      console.log('User not found, go to sign up page');
+      navigate('/signup/create-account', { state: { email } });
     }
   };
-
-  console.log('error', errors);
 
   const onChangeHandler = (value: string): void => {
     setEmail(value);
