@@ -1,0 +1,22 @@
+.button {
+  background-color: #1976d2;
+  font-weight: 700;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  height: 37px;
+  padding: 0 24px;
+  line-height: 35px;
+  min-width: 100px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #0658ab;
+}
+
+.button:disabled {
+  background-color: #a4caf1;
+}
