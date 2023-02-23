@@ -1,9 +1,10 @@
 .form__field {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   width: max-content;
+  height: 90px;
 }
 
 .form__input {
@@ -14,4 +15,14 @@
 
 .form__label {
   margin-bottom: 8px;
+}
+
+.form__error-active {
+  display: block;
+  color: red;
+  font-size: 14px;
+}
+
+.form__error-inactive {
+  visibility: hidden;
 }

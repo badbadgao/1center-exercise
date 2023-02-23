@@ -11,7 +11,7 @@ interface IButtonProps {
 
 const Button = ({ rootClass = '', children, onClick, disabled }: IButtonProps): JSX.Element => {
   return (
-    <button className={`button ${rootClass}`} onClick={() => onClick?.()} type="button" disabled={disabled}>
+    <button className={`button ${rootClass}`} onClick={() => onClick?.()} disabled={disabled}>
       {children}
     </button>
   );
