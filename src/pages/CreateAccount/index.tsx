@@ -54,7 +54,6 @@ const BusinessDetails = (): JSX.Element => {
 
     if (userAccount) {
       navigate('/signup/business-details');
-      console.log('User not found, go to sign up page');
     } else {
       console.error('Failed to create account');
     }
