@@ -97,7 +97,7 @@ const BusinessDetails = (): JSX.Element => {
             />
             {errors.password && (
               <span className={`${errors.password ? 'form__error-active' : 'form__error-inactive'}`}>
-                Password does not match
+                Passwords does not match
               </span>
             )}
           </div>
@@ -125,9 +125,9 @@ const BusinessDetails = (): JSX.Element => {
             )}
           </div>
           <Button
-            rootClass="onBoard__submit"
+            rootClass="createAcount__submit"
             onClick={handleSubmit(onSubmitHandler)}
-            disabled={!email || !password || !confirmPassword}
+            disabled={!password || !confirmPassword}
           >
             Create Account
           </Button>
