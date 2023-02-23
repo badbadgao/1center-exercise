@@ -1,0 +1,25 @@
+.businessDetails {
+  width: 100%;
+  height: 100%;
+}
+
+
+.businessDetails__form {
+  display: flex;
+  max-width: 600px;
+  width: 50%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: auto;
+}
+
+.businessDetails__title {
+  max-width: 600px;
+  width: 50%;
+  margin: 32px auto;
+}
+
+.businessDetails__submit {
+  margin-top: 16px;
+}
