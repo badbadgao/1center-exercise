@@ -8,6 +8,7 @@
 
 .businessDetails__title {
   margin: 32px auto;
+  text-align: left;
 }
 
 .businessDetails__submit {

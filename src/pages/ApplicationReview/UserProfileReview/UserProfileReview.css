@@ -5,6 +5,7 @@
 
 .userProfileView__img {
   margin-bottom: 8px;
+  text-align: left;
   flex: 1;
 }
 
@@ -17,4 +18,5 @@
 .userProfileView__info {
   flex: 1;
   margin-left: 28px;
+  text-align: left;
 }

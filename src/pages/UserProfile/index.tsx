@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import { AppContext } from 'pages/AppWrapper';
+import { AppContext } from 'containers/AppWrapper';
 import Button from 'components/Button';
 import services from 'services';
 import 'components/form/index.css';

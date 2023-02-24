@@ -4,11 +4,12 @@ import CreateAccount from 'pages/CreateAccount';
 import BusinessDetails from 'pages/BusinessDetails';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import AppWrapper from './pages/AppWrapper';
+import AppWrapper from './containers/AppWrapper';
 import OnBoard from 'pages/OnBoard';
 import AddDirectors from 'pages/AddDirectors';
 import UserProfile from 'pages/UserProfile';
 import ApplicationReview from 'pages/ApplicationReview';
+import SubmitSuccessful from 'pages/SubmitSuccessful';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,14 @@ const router = createBrowserRouter([
     element: (
       <AppWrapper>
         <ApplicationReview />
+      </AppWrapper>
+    ),
+  },
+  {
+    path: '/signup/successful',
+    element: (
+      <AppWrapper>
+        <SubmitSuccessful />
       </AppWrapper>
     ),
   },

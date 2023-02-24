@@ -1,5 +1,6 @@
 .textView__item {
   flex: 1;
+  text-align: left;
 }
 
 .textView__item-label {

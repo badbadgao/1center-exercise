@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Header from 'containers/Header';
-import './index.css';
+import 'css/index.css';
+import 'css/App.css';
 
 interface IProps {
   children: React.ReactNode;

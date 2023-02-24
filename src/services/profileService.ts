@@ -80,3 +80,8 @@ export const updateUserProfile = (email: string, userProfile: TUserProfile): TUs
     return undefined;
   }
 };
+
+export const submitApplication = (): void => {
+  // TODO submit application to server.
+  console.log('Submit Successfully');
+};

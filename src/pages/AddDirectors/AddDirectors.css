@@ -17,6 +17,7 @@
   max-width: 600px;
   width: 50%;
   margin: 32px auto;
+  text-align: left;
 }
 
 .addDirectors__button-add {

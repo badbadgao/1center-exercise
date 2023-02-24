@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import { AppContext } from 'pages/AppWrapper';
+import { AppContext } from 'containers/AppWrapper';
 import Button from 'components/Button';
 import reducer, { BusinessDetailsFormActionType } from './businessDetailsReducer';
 import services from 'services';
@@ -175,7 +175,7 @@ const BusinessDetails = (): JSX.Element => {
             {/* <-- address field --> */}
             <div className="form__field">
               <label className="form__label" htmlFor="email">
-                Adress
+                Address
               </label>
               <input
                 {...register('address')}

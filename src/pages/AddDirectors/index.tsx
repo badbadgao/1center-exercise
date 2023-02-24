@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ClearIcon from '@mui/icons-material/Clear';
 import uniqid from 'uniqid';
 
-import { AppContext } from 'pages/AppWrapper';
+import { AppContext } from 'containers/AppWrapper';
 import Button from 'components/Button';
 import services from 'services';
 import { TDirector } from 'models/type';
