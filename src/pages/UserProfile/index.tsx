@@ -28,10 +28,10 @@ const UserProfile = (): JSX.Element => {
   const navigate = useNavigate();
   const appContext = useContext(AppContext);
 
-  // if (!appContext.email) {
-  //   // This should be redirected to login page in real world
-  //   throw Error('User is not logged in!');
-  // }
+  if (!appContext.email) {
+    // This should be redirected to login page in real world
+    throw Error('User is not logged in!');
+  }
 
   const { profileService } = services;
 

@@ -35,10 +35,10 @@ const BusinessDetails = (): JSX.Element => {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // if (!appContext.email) {
-  //   // This should be redirected to login page in real world
-  //   throw Error('User is not logged in!');
-  // }
+  if (!appContext.email) {
+    // This should be redirected to login page in real world
+    throw Error('User is not logged in!');
+  }
 
   const { profileService } = services;
 
