@@ -75,7 +75,7 @@ const AddDirectors = (): JSX.Element => {
 
   const onSubmitHandler = () => {
     appContext.email && profileService.updateDirectors(appContext.email, directors);
-    // navigate('/signup/add-directors');
+    navigate('/signup/user-profile');
   };
 
   const onAddClickHandler = (): void => {
