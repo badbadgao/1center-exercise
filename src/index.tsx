@@ -4,7 +4,7 @@ import CreateAccount from 'pages/CreateAccount';
 import BusinessDetails from 'pages/BusinessDetails';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import AppWrapper from './containers/AppWrapper';
+import AppWrapper from 'containers/AppWrapper';
 import OnBoard from 'pages/OnBoard';
 import AddDirectors from 'pages/AddDirectors';
 import UserProfile from 'pages/UserProfile';
