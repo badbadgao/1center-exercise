@@ -1,0 +1,29 @@
+.applicationReview {
+  width: 100%;
+  height: 100%;
+}
+
+.textview__row {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.textview__row div:last-child {
+  margin-left: 24px;
+}
+
+.textview__title {
+  margin: 32px auto 16px;
+}
+
+.applicationReview__title {
+  margin: 26px auto;
+}
+
+.applicationReview__submit {
+  margin: 26px auto;
+  display: flex;
+  justify-content: end;
+}

@@ -1,0 +1,8 @@
+.textView__item {
+  flex: 1;
+}
+
+.textView__item-label {
+  margin-right: 8px;
+  line-height: 28px;
+}

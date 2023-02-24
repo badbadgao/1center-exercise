@@ -8,6 +8,7 @@ import AppWrapper from './pages/AppWrapper';
 import OnBoard from 'pages/OnBoard';
 import AddDirectors from 'pages/AddDirectors';
 import UserProfile from 'pages/UserProfile';
+import ApplicationReview from 'pages/ApplicationReview';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
     element: (
       <AppWrapper>
         <UserProfile />
+      </AppWrapper>
+    ),
+  },
+  {
+    path: '/signup/application-review',
+    element: (
+      <AppWrapper>
+        <ApplicationReview />
       </AppWrapper>
     ),
   },

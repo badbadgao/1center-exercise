@@ -62,7 +62,7 @@ const UserProfile = (): JSX.Element => {
         imgFileDataURL,
         idNumber,
       });
-    // navigate('/signup/review');
+    navigate('/signup/application-review');
   };
 
   return (

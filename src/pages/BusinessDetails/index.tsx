@@ -63,13 +63,13 @@ const BusinessDetails = (): JSX.Element => {
   });
 
   const onSubmitHandler = () => {
-    appContext.email && profileService.updateBusinessDetails(appContext.email, state);
+    appContext.email && profileService.updateBusinessDetail(appContext.email, state);
     navigate('/signup/add-directors');
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <div className="businessDetails">
+      <div className="container">
         <h2 className="businessDetails__title">Business Details</h2>
         <div className="businessDetails__form">
           <div className="form__row">
@@ -168,8 +168,8 @@ const BusinessDetails = (): JSX.Element => {
                 value={state.country}
               >
                 <option value="none">Choose...</option>
-                <option value="nz">New Zealand</option>
-                <option value="au">Australia</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Australia">Australia</option>
               </select>
             </div>
             {/* <-- address field --> */}
