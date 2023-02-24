@@ -10,7 +10,8 @@
 .form__input {
   margin-bottom: 8px;
   width: 250px;
-  height: 24px;
+  height: 28px;
+  box-sizing: border-box;
 }
 
 .form__label {
@@ -25,4 +26,11 @@
 
 .form__error-inactive {
   visibility: hidden;
+}
+
+.form__row {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  justify-content: space-between;
 }
