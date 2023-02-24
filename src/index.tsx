@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AppWrapper from './pages/AppWrapper';
 import OnBoard from 'pages/OnBoard';
+import AddDirectors from 'pages/AddDirectors';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
     element: (
       <AppWrapper>
         <BusinessDetails />
+      </AppWrapper>
+    ),
+  },
+  {
+    path: '/signup/add-directors',
+    element: (
+      <AppWrapper>
+        <AddDirectors />
       </AppWrapper>
     ),
   },

@@ -11,10 +11,17 @@ export type TBusinessDetail = {
   address: string;
 };
 
+export type TDirector = {
+  id: string;
+  directorName: string;
+  email: string;
+};
+
 export type TUserAccount = {
   id?: string;
   email: string;
   password: string;
   userProfile?: TUserProfile;
   businessDetail?: TBusinessDetail;
+  directors?: TDirector[];
 };

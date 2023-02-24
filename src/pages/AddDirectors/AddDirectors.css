@@ -1,0 +1,40 @@
+.addDirectors {
+  width: 100%;
+  height: 100%;
+}
+
+.addDirectors__form {
+  display: flex;
+  max-width: 600px;
+  width: 50%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: auto;
+}
+
+.addDirectors__title {
+  max-width: 600px;
+  width: 50%;
+  margin: 32px auto;
+}
+
+.addDirectors__button-add {
+  margin-bottom: 32px;
+}
+
+.addDirectors__button-remove {
+  margin-bottom: 10px !important;
+  height: 30px;
+}
+
+.addDirectors__button-remove-active {
+  margin-bottom: 10px !important;
+  height: 30px;
+}
+
+.addDirectors__button-remove-hidden {
+  visibility: hidden;
+  margin-bottom: 10px !important;
+  height: 30px;
+}
