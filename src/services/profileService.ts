@@ -1,4 +1,4 @@
-import { TBusinessDetail, TUserAccount } from 'models/type';
+import { TBusinessDetail, TDirector, TUserAccount } from 'models/type';
 
 export const getUserAccount = (email: string): TUserAccount | undefined => {
   const item = localStorage.getItem(email);
@@ -41,3 +41,22 @@ export const updateBusinessDetails = (email: string, businessDetails: TBusinessD
     return undefined;
   }
 };
+export function updateDirectors(email: string, directors: TDirector[]): TUserAccount | undefined {
+  const item = localStorage.getItem(email);
+
+  try {
+    const userAccount = item ? JSON.parse(item) : undefined;
+
+    if (userAccount) {
+      const updatedUserAcount = {
+        ...userAccount,
+        directors,
+      };
+
+      localStorage.setItem(userAccount.email, JSON.stringify(updatedUserAcount));
+    }
+  } catch (e) {
+    console.error('Failed to update directors', e);
+    return undefined;
+  }
+}

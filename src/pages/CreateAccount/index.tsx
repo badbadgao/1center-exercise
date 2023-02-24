@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+import { AppContext } from 'pages/AppWrapper';
 import Button from 'components/Button';
 
 import './CreateAccount.css';
@@ -19,6 +20,7 @@ interface IFormInput {
 }
 
 const CreateAccount = (): JSX.Element => {
+  const appContext = useContext(AppContext);
   const navigate = useNavigate();
   const { state } = useLocation();
   const email = state.email;
@@ -53,6 +55,7 @@ const CreateAccount = (): JSX.Element => {
     });
 
     if (userAccount) {
+      appContext.setEmail?.(email);
       navigate('/signup/business-details');
     } else {
       console.error('Failed to create account');
@@ -120,7 +123,7 @@ const CreateAccount = (): JSX.Element => {
             />
             {errors.confirmPassword && (
               <span className={`${errors.confirmPassword ? 'form__error-active' : 'form__error-inactive'}`}>
-                Password must match
+                Passwords must match
               </span>
             )}
           </div>
