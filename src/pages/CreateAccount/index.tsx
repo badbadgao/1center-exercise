@@ -18,7 +18,7 @@ interface IFormInput {
   confirmPassword: string;
 }
 
-const BusinessDetails = (): JSX.Element => {
+const CreateAccount = (): JSX.Element => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const email = state.email;
@@ -137,4 +137,4 @@ const BusinessDetails = (): JSX.Element => {
   );
 };
 
-export default BusinessDetails;
+export default CreateAccount;

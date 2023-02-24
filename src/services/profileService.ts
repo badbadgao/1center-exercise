@@ -28,13 +28,11 @@ export const updateBusinessDetails = (email: string, businessDetails: TBusinessD
   try {
     const userAccount = item ? JSON.parse(item) : undefined;
 
-    console.log('userAccount', userAccount);
     if (userAccount) {
       const updatedUserAcount = {
         ...userAccount,
         businessDetails,
       };
-      console.log('userAccount 2222', updatedUserAcount);
 
       localStorage.setItem(userAccount.email, JSON.stringify(updatedUserAcount));
     }
