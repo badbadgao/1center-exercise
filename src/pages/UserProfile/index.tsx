@@ -88,11 +88,6 @@ const UserProfile = (): JSX.Element => {
                 }}
                 value={firstName}
               />
-              {errors.firstName && (
-                <span className={`${errors.firstName ? 'form__error-active' : 'form__error-inactive'}`}>
-                  {errors.firstName.message}
-                </span>
-              )}
             </div>
             {/* <-- last name field --> */}
             <div className="form__field">
@@ -110,11 +105,6 @@ const UserProfile = (): JSX.Element => {
                 }}
                 value={lastName}
               />
-              {errors.lastName && (
-                <span className={`${errors.lastName ? 'form__error-active' : 'form__error-inactive'}`}>
-                  {errors.lastName.message}
-                </span>
-              )}
             </div>
             {/* <-- date of birth field --> */}
             <div className="form__field">
@@ -133,11 +123,6 @@ const UserProfile = (): JSX.Element => {
                 }}
                 value={dob}
               />
-              {errors.dob && (
-                <span className={`${errors.dob ? 'form__error-active' : 'form__error-inactive'}`}>
-                  {errors.dob.message}
-                </span>
-              )}
             </div>
             {/* <-- identification number field --> */}
             <div className="form__field">
