@@ -22,7 +22,7 @@ export const createAccount = (userAccount: TUserAccount): TUserAccount => {
  * @param businessDetails the business details to update
  * @returns user account object
  */
-export const updateBusinessDetails = (email: string, businessDetails: TBusinessDetail): TUserAccount | undefined => {
+export const updateBusinessDetail = (email: string, businessDetail: TBusinessDetail): TUserAccount | undefined => {
   const item = localStorage.getItem(email);
 
   try {
@@ -31,7 +31,7 @@ export const updateBusinessDetails = (email: string, businessDetails: TBusinessD
     if (userAccount) {
       const updatedUserAcount = {
         ...userAccount,
-        businessDetails,
+        businessDetail,
       };
 
       localStorage.setItem(userAccount.email, JSON.stringify(updatedUserAcount));
