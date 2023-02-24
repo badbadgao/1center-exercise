@@ -75,7 +75,9 @@ const AppHeader = (): JSX.Element => {
 
   return (
     <header className="header">
-      <img className="header__logo" src={logo} />
+      <NavLink to="/onboard">
+        <img className="header__logo" src={logo} />
+      </NavLink>
       {appContext.email && (
         <>
           <Button rootClass="header__menu" onClick={toggleDrawer}>
