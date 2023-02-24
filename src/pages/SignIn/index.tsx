@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import { AppContext } from 'containers/AppWrapper';
 import Button from 'components/Button';
 
-import './CreateAccount.css';
+import './SignIn.css';
 
 import services from 'services';
 
@@ -19,13 +19,13 @@ interface IFormInput {
   confirmPassword: string;
 }
 
-const CreateAccount = (): JSX.Element => {
+const SignIn = (): JSX.Element => {
   const appContext = useContext(AppContext);
   const navigate = useNavigate();
   const { state } = useLocation();
   const email = state.email;
   const [password, setPassword] = useState<string>('');
-  const [confirmPassword, setConfrimPassword] = useState<string>('');
+  const [loginError, setLoginError] = useState<boolean>(false);
 
   const { profileService } = services;
 
@@ -33,32 +33,23 @@ const CreateAccount = (): JSX.Element => {
     .object()
     .shape({
       password: yup.string().required(''),
-      confirmPassword: yup
-        .string()
-        .required('')
-        .oneOf([yup.ref('password'), ''], 'Passwords must match'),
     })
     .required();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IFormInput>({
+  const { register, handleSubmit } = useForm<IFormInput>({
     resolver: yupResolver(schema),
   });
 
   const onSubmitHandler = () => {
-    const userAccount = profileService.createAccount({
-      email,
-      password,
-    });
+    const userAccount = profileService.login(email, password);
 
     if (userAccount) {
+      setLoginError(false);
       appContext.setEmail?.(email);
       navigate('/signup/business-details');
     } else {
-      console.error('Failed to create account');
+      console.error('Failed to login');
+      setLoginError(true);
     }
   };
 
@@ -66,14 +57,10 @@ const CreateAccount = (): JSX.Element => {
     setPassword(passwordValue);
   };
 
-  const onConfirmPasswordChangeHandler = (confirmPasswordValue: string): void => {
-    setConfrimPassword(confirmPasswordValue);
-  };
-
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <div className="createAccount">
-        <div className="createAccount__form">
+      <div className="container">
+        <div className="signin__form">
           {/* <-- email field --> */}
           <div className="form__field">
             <label className="form__label" htmlFor="email">
@@ -84,7 +71,7 @@ const CreateAccount = (): JSX.Element => {
           {/* <-- password field --> */}
           <div className="form__field">
             <label className="form__label" htmlFor="email">
-              Create password
+              Password
             </label>
             <input
               {...register('password')}
@@ -98,41 +85,14 @@ const CreateAccount = (): JSX.Element => {
               }}
               value={password}
             />
-            {errors.password && (
-              <span className={`${errors.password ? 'form__error-active' : 'form__error-inactive'}`}>
-                Passwords does not match
+            {loginError && (
+              <span className={`${loginError ? 'form__error-active' : 'form__error-inactive'}`}>
+                Passwords is wrong, please try again.
               </span>
             )}
           </div>
-          {/* <-- confirm password field --> */}
-          <div className="form__field">
-            <label className="form__label" htmlFor="email">
-              Confirm password
-            </label>
-            <input
-              {...register('confirmPassword')}
-              id="confirmPassword"
-              name="confirmPassword"
-              className="form__input"
-              type="password"
-              onChange={(e): void => {
-                const value = e.target.value;
-                onConfirmPasswordChangeHandler(value);
-              }}
-              value={confirmPassword}
-            />
-            {errors.confirmPassword && (
-              <span className={`${errors.confirmPassword ? 'form__error-active' : 'form__error-inactive'}`}>
-                Passwords must match
-              </span>
-            )}
-          </div>
-          <Button
-            rootClass="createAcount__submit"
-            onClick={handleSubmit(onSubmitHandler)}
-            disabled={!password || !confirmPassword}
-          >
-            Create Account
+          <Button rootClass="createAcount__submit" onClick={handleSubmit(onSubmitHandler)} disabled={!password}>
+            Log in
           </Button>
         </div>
       </div>
@@ -140,4 +100,4 @@ const CreateAccount = (): JSX.Element => {
   );
 };
 
-export default CreateAccount;
+export default SignIn;

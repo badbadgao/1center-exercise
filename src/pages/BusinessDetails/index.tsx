@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useReducer, useContext } from 'react';
+import { useReducer, useContext, useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -34,6 +34,13 @@ const BusinessDetails = (): JSX.Element => {
     address: '',
   };
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const businessDetail = appContext.email && profileService.getBusinessDetail(appContext.email);
+    if (businessDetail) {
+      dispatch({ type: BusinessDetailsFormActionType.SET_BUSINESS_DETAIL, payload: businessDetail });
+    }
+  }, [appContext.email]);
 
   if (!appContext.email) {
     // This should be redirected to login page in real world

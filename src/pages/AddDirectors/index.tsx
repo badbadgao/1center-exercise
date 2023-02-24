@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -30,6 +30,13 @@ const AddDirectors = (): JSX.Element => {
 
   const navigate = useNavigate();
   const appContext = useContext(AppContext);
+
+  useEffect(() => {
+    const directors = appContext.email && profileService.getDirectors(appContext.email);
+    if (directors) {
+      setDirectors(directors);
+    }
+  }, [appContext.email]);
 
   if (!appContext.email) {
     // This should be redirected to login page in real world

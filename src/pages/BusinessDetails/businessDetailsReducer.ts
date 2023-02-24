@@ -7,11 +7,12 @@ export enum BusinessDetailsFormActionType {
   SET_COUNTRY = 'SET_COUNTRY',
   SET_ADDRESS = 'SET_ADDRESS',
   SET_REGISTRATION_DATE = 'SET_REGISTRATION_DATE',
+  SET_BUSINESS_DETAIL = 'SET_BUSINESS_DETAIL',
 }
 
 interface IBusinessDetailsFormAction {
   type: BusinessDetailsFormActionType;
-  payload: string;
+  payload: string | TBusinessDetail;
 }
 
 const reducer = (state: TBusinessDetail, { type, payload }: IBusinessDetailsFormAction): TBusinessDetail => {
@@ -19,32 +20,37 @@ const reducer = (state: TBusinessDetail, { type, payload }: IBusinessDetailsForm
     case BusinessDetailsFormActionType.SET_COMPANY_NAME:
       return {
         ...state,
-        companyName: payload,
+        companyName: payload as string,
       };
     case BusinessDetailsFormActionType.SET_COMPANY_NUMBER:
       return {
         ...state,
-        companyNumber: payload,
+        companyNumber: payload as string,
       };
     case BusinessDetailsFormActionType.SET_TRADING_NAME:
       return {
         ...state,
-        tradingName: payload,
+        tradingName: payload as string,
       };
     case BusinessDetailsFormActionType.SET_ADDRESS:
       return {
         ...state,
-        address: payload,
+        address: payload as string,
       };
     case BusinessDetailsFormActionType.SET_COUNTRY:
       return {
         ...state,
-        country: payload,
+        country: payload as string,
       };
     case BusinessDetailsFormActionType.SET_REGISTRATION_DATE:
       return {
         ...state,
-        registrationDate: payload,
+        registrationDate: payload as string,
+      };
+    case BusinessDetailsFormActionType.SET_BUSINESS_DETAIL:
+      return {
+        ...state,
+        ...(payload as TBusinessDetail),
       };
 
     default:

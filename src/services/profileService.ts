@@ -85,3 +85,53 @@ export const submitApplication = (): void => {
   // TODO submit application to server.
   console.log('Submit Successfully');
 };
+
+export const login = (email: string, password: string): TUserAccount | undefined => {
+  const item = localStorage.getItem(email);
+
+  try {
+    const userAccount = item ? JSON.parse(item) : undefined;
+
+    if (userAccount?.password === password) {
+      return userAccount;
+    } else {
+      return undefined;
+    }
+  } catch (e) {
+    console.error('Failed to login', e);
+    return undefined;
+  }
+};
+
+export const getBusinessDetail = (email: string): TBusinessDetail | undefined => {
+  const item = localStorage.getItem(email);
+  try {
+    const userAccount = item ? JSON.parse(item) : undefined;
+    return userAccount?.businessDetail;
+  } catch (e) {
+    console.error('Failed to get business detail', e);
+    return undefined;
+  }
+};
+
+export const getDirectors = (email: string): TDirector[] | undefined => {
+  const item = localStorage.getItem(email);
+  try {
+    const userAccount = item ? JSON.parse(item) : undefined;
+    return userAccount?.directors;
+  } catch (e) {
+    console.error('Failed to get directors', e);
+    return undefined;
+  }
+};
+
+export const getUserProfile = (email: string): TUserProfile | undefined => {
+  const item = localStorage.getItem(email);
+  try {
+    const userAccount = item ? JSON.parse(item) : undefined;
+    return userAccount?.userProfile;
+  } catch (e) {
+    console.error('Failed to get user profile', e);
+    return undefined;
+  }
+};

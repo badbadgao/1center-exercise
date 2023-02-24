@@ -10,6 +10,7 @@ import AddDirectors from 'pages/AddDirectors';
 import UserProfile from 'pages/UserProfile';
 import ApplicationReview from 'pages/ApplicationReview';
 import SubmitSuccessful from 'pages/SubmitSuccessful';
+import SignIn from 'pages/SignIn';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,14 @@ const router = createBrowserRouter([
     element: (
       <AppWrapper>
         <SubmitSuccessful />
+      </AppWrapper>
+    ),
+  },
+  {
+    path: '/signin',
+    element: (
+      <AppWrapper>
+        <SignIn />
       </AppWrapper>
     ),
   },
