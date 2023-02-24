@@ -39,6 +39,9 @@ const BusinessDetails = (): JSX.Element => {
     const businessDetail = appContext.email && profileService.getBusinessDetail(appContext.email);
     if (businessDetail) {
       dispatch({ type: BusinessDetailsFormActionType.SET_BUSINESS_DETAIL, payload: businessDetail });
+      // the form needs to be reset and validated with the data from storage, otherwise the form will be validated
+      // with old empty state but still showing the data
+      reset(businessDetail);
     }
   }, [appContext.email]);
 
@@ -65,6 +68,7 @@ const BusinessDetails = (): JSX.Element => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IFormInput>({
     resolver: yupResolver(schema),
   });
