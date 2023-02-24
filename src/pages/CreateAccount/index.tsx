@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-import { AppContext } from 'pages/AppWrapper';
+import { AppContext } from 'containers/AppWrapper';
 import Button from 'components/Button';
 
 import './CreateAccount.css';

@@ -13,6 +13,8 @@
 
 .userProfile__title {
   max-width: 800px;
+  text-align: left;
+  width: 50%;
   margin: 32px auto;
 }
 

@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import BusinessDetailsReview from './BusinessDetailsReview';
 import DirectorsReview from './DirectorsReview';
 import UserProfileReview from './UserProfileReview';
 import services from 'services';
-import { AppContext } from 'pages/AppWrapper';
+import { AppContext } from 'containers/AppWrapper';
 
 import './ApplicationReview.css';
 import { TUserAccount } from 'models/type';
@@ -13,6 +14,7 @@ import Button from 'components/Button';
 
 const ApplicationReview = (): JSX.Element => {
   const appContext = useContext(AppContext);
+  const navigate = useNavigate();
   const [userAccount, setUserAccount] = useState<TUserAccount>();
   const { profileService } = services;
 
@@ -32,13 +34,18 @@ const ApplicationReview = (): JSX.Element => {
     }
   }, []);
 
+  const onSubmitHandler = () => {
+    profileService.submitApplication();
+    navigate('/signup/successful');
+  };
+
   return (
     <div className="container">
       <h2 className="applicationReview__title">Review</h2>
       {userAccount?.businessDetail && <BusinessDetailsReview businessDetail={userAccount.businessDetail} />}
       {userAccount?.directors && <DirectorsReview directors={userAccount.directors} />}
       {userAccount?.userProfile && <UserProfileReview userProfile={userAccount.userProfile} />}
-      <div className="applicationReview__submit">
+      <div className="applicationReview__submit" onClick={onSubmitHandler}>
         <Button>Submit</Button>
       </div>
     </div>

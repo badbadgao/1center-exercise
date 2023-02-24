@@ -1,8 +1,3 @@
-.applicationReview {
-  width: 100%;
-  height: 100%;
-}
-
 .textview__row {
   display: flex;
   flex: 1;
@@ -16,10 +11,12 @@
 
 .textview__title {
   margin: 32px auto 16px;
+  text-align: left;
 }
 
 .applicationReview__title {
   margin: 26px auto;
+  text-align: left;
 }
 
 .applicationReview__submit {

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ClearIcon from '@mui/icons-material/Clear';
 import uniqid from 'uniqid';
 
-import { AppContext } from 'pages/AppWrapper';
+import { AppContext } from 'containers/AppWrapper';
 import Button from 'components/Button';
 import services from 'services';
 import { TDirector } from 'models/type';
@@ -31,10 +31,10 @@ const AddDirectors = (): JSX.Element => {
   const navigate = useNavigate();
   const appContext = useContext(AppContext);
 
-  if (!appContext.email) {
-    // This should be redirected to login page in real world
-    throw Error('User is not logged in!');
-  }
+  // if (!appContext.email) {
+  //   // This should be redirected to login page in real world
+  //   throw Error('User is not logged in!');
+  // }
 
   const shapeObj = directors.reduce((accu, director) => {
     return {

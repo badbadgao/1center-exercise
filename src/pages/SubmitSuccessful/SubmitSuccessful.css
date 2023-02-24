@@ -1,0 +1,14 @@
+.submitSuccessful__content {
+  width: 400px;
+  height: 100px;
+  padding: 32px;
+  margin: 48px auto;
+  border: 2px solid rgb(225, 229, 225);
+  border-radius: 4px;
+}
+
+.submitSuccessful__button {
+  display: flex;
+  justify-content: end;
+  margin-top: 150px;
+}
