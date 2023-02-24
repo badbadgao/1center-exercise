@@ -22,5 +22,5 @@
 .applicationReview__submit {
   margin: 26px auto;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
