@@ -1,5 +1,9 @@
 export type TUserProfile = {
-  email: string;
+  firstName: string;
+  lastName: string;
+  dob: string;
+  idNumber: string;
+  imgFileDataURL: string;
 };
 
 export type TBusinessDetail = {

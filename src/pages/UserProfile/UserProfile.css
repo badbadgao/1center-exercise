@@ -1,0 +1,43 @@
+.userProfile {
+  width: 100%;
+  height: 100%;
+}
+
+.userProfile__form {
+  display: flex;
+  max-width: 800px;
+  width: 50%;
+  align-items: flex-end;
+  margin: auto;
+}
+
+.userProfile__title {
+  max-width: 800px;
+  margin: 32px auto;
+}
+
+.userProfile__submit {
+  margin-top: 16px;
+}
+
+.userProfile__imgupload {
+  display: flex;
+  flex-direction: column;
+}
+
+.userProfile__img {
+  width: 180px;
+  height: 180px;
+  border: 2px solid #32a1ce;
+  margin-bottom: 8px;
+}
+
+.userProfile__info {
+  display: flex;
+  max-width: 600px;
+  width: 50%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: auto;
+}

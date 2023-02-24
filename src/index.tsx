@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AppWrapper from './pages/AppWrapper';
 import OnBoard from 'pages/OnBoard';
 import AddDirectors from 'pages/AddDirectors';
+import UserProfile from 'pages/UserProfile';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,14 @@ const router = createBrowserRouter([
     element: (
       <AppWrapper>
         <AddDirectors />
+      </AppWrapper>
+    ),
+  },
+  {
+    path: '/signup/user-profile',
+    element: (
+      <AppWrapper>
+        <UserProfile />
       </AppWrapper>
     ),
   },
