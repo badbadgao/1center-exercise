@@ -28,4 +28,5 @@ export type TUserAccount = {
   userProfile?: TUserProfile;
   businessDetail?: TBusinessDetail;
   directors?: TDirector[];
+  submitted: boolean;
 };

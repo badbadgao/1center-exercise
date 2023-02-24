@@ -81,8 +81,23 @@ export const updateUserProfile = (email: string, userProfile: TUserProfile): TUs
   }
 };
 
-export const submitApplication = (): void => {
-  // TODO submit application to server.
+export const submitApplication = (email: string): void => {
+  const item = localStorage.getItem(email);
+  try {
+    const userAccount = item ? JSON.parse(item) : undefined;
+
+    if (userAccount) {
+      const updatedUserAcount = {
+        ...userAccount,
+        submitted: true,
+      };
+
+      localStorage.setItem(userAccount.email, JSON.stringify(updatedUserAcount));
+    }
+  } catch (e) {
+    console.error('Failed to update user profile', e);
+    return undefined;
+  }
   console.log('Submit Successfully');
 };
 
