@@ -37,8 +37,8 @@ const UserProfile = (): JSX.Element => {
       setDob(dob);
       setIdNumber(idNumber);
       setImgFileDataURL(imgFileDataURL);
-      // the form need to reset and validate the form with the data, otherwise the form will validate
-      // with old empty state.
+      // the form needs to be reset and validated with the data from storage, otherwise the form will be validated
+      // with old empty state but still showing the data
       reset(userProfile);
     }
   }, [appContext.email]);
