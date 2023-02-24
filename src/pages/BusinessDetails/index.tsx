@@ -77,7 +77,7 @@ const BusinessDetails = (): JSX.Element => {
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
       <div className="container">
-        <h2 className="businessDetails__title">Business Details</h2>
+        <h2 className="businessDetails__title">Business details</h2>
         <div className="businessDetails__form">
           <div className="form__row">
             {/* <-- company name field --> */}

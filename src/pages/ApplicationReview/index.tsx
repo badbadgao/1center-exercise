@@ -35,7 +35,7 @@ const ApplicationReview = (): JSX.Element => {
   }, []);
 
   const onSubmitHandler = () => {
-    profileService.submitApplication();
+    appContext.email && profileService.submitApplication(appContext.email);
     navigate('/signup/successful');
   };
 
@@ -45,8 +45,13 @@ const ApplicationReview = (): JSX.Element => {
       {userAccount?.businessDetail && <BusinessDetailsReview businessDetail={userAccount.businessDetail} />}
       {userAccount?.directors && <DirectorsReview directors={userAccount.directors} />}
       {userAccount?.userProfile && <UserProfileReview userProfile={userAccount.userProfile} />}
-      <div className="applicationReview__submit" onClick={onSubmitHandler}>
-        <Button>Submit</Button>
+      <div className="applicationReview__submit">
+        <Button
+          onClick={onSubmitHandler}
+          disabled={!userAccount?.businessDetail || !userAccount?.directors || !userAccount?.userProfile}
+        >
+          Submit
+        </Button>
       </div>
     </div>
   );

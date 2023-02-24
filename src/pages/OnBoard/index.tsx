@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+
+import { AppContext } from 'containers/AppWrapper';
 
 import Button from 'components/Button';
 
@@ -18,6 +20,8 @@ interface IFormInput {
 
 const OnBoard = (): JSX.Element => {
   const navigate = useNavigate();
+  const appContext = useContext(AppContext);
+
   const [email, setEmail] = useState<string>('');
   const { profileService } = services;
 
@@ -35,6 +39,11 @@ const OnBoard = (): JSX.Element => {
   } = useForm<IFormInput>({
     resolver: yupResolver(schema),
   });
+
+  useEffect(() => {
+    // Remove the logged in user when onboard page is loaded
+    appContext.setEmail?.('');
+  }, []);
 
   const onSubmitHandler = () => {
     const userProfile = profileService.getUserAccount(email);
