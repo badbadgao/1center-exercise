@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -27,6 +27,18 @@ const UserProfile = (): JSX.Element => {
   const [imgFileDataURL, setImgFileDataURL] = useState<string>('');
   const navigate = useNavigate();
   const appContext = useContext(AppContext);
+
+  useEffect(() => {
+    const userProfile = appContext.email && profileService.getUserProfile(appContext.email);
+    if (userProfile) {
+      const { firstName, lastName, dob, idNumber, imgFileDataURL } = userProfile;
+      setFirstName(firstName);
+      setLastName(lastName);
+      setDob(dob);
+      setIdNumber(idNumber);
+      setImgFileDataURL(imgFileDataURL);
+    }
+  }, [appContext.email]);
 
   if (!appContext.email) {
     // This should be redirected to login page in real world

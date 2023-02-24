@@ -40,7 +40,7 @@ const OnBoard = (): JSX.Element => {
     const userProfile = profileService.getUserAccount(email);
 
     if (userProfile) {
-      console.log('Existing user, go to login page');
+      navigate('/signIn', { state: { email } });
     } else {
       navigate('/signup/create-account', { state: { email } });
     }
