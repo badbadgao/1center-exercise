@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { useReducer } from 'react';
+import { useReducer, useContext } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 
+import { AppContext } from 'pages/AppWrapper';
 import Button from 'components/Button';
 import reducer, { BusinessDetailsFormActionType } from './businessDetailsReducer';
 import services from 'services';
@@ -29,8 +30,14 @@ const BusinessDetails = (): JSX.Element => {
     country: '',
     address: '',
   };
+  const appContext = useContext(AppContext);
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  if (!appContext.email) {
+    // This should be redirected to login page in real world
+    throw Error('User is not logged in!');
+  }
 
   const { profileService } = services;
 
@@ -55,7 +62,7 @@ const BusinessDetails = (): JSX.Element => {
   });
 
   const onSubmitHandler = () => {
-    profileService.updateBusinessDetails('123452@qq.com', state);
+    appContext.email && profileService.updateBusinessDetails(appContext.email, state);
   };
 
   return (

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+import { AppContext } from 'pages/AppWrapper';
 import Button from 'components/Button';
 
 import services from 'services';
@@ -18,6 +19,7 @@ interface IFormInput {
 
 const OnBoard = (): JSX.Element => {
   const navigate = useNavigate();
+  const appContext = useContext(AppContext);
   const [email, setEmail] = useState<string>('');
   const { profileService } = services;
 
@@ -42,6 +44,7 @@ const OnBoard = (): JSX.Element => {
     if (userProfile) {
       console.log('Existing user, go to login page');
     } else {
+      appContext.setEmail?.(email);
       navigate('/signup/create-account', { state: { email } });
     }
   };
