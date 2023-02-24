@@ -19,6 +19,8 @@ interface IFormInput {
   [key: string]: string;
 }
 
+const MAX_DIRECTORS_COUNT = 10;
+
 const AddDirectors = (): JSX.Element => {
   const [directors, setDirectors] = useState<TDirector[]>([
     {
@@ -90,6 +92,7 @@ const AddDirectors = (): JSX.Element => {
       return [
         ...directors,
         {
+          // We must make sure the id is unique to make sure each row has unique key
           id: uniqid(),
           directorName: '',
           email: '',
@@ -173,10 +176,19 @@ const AddDirectors = (): JSX.Element => {
         <h2 className="addDirectors__title">Directors</h2>
         <div className="addDirectors__form">
           {directorRows}
-          <Button rootClass="addDirectors__button-add" onClick={onAddClickHandler}>
+          <Button
+            rootClass="addDirectors__button-add"
+            onClick={onAddClickHandler}
+            disabled={directors.length >= MAX_DIRECTORS_COUNT}
+          >
             Add
           </Button>
-          <Button onClick={handleSubmit(onSubmitHandler)}>Next</Button>
+          <Button
+            onClick={handleSubmit(onSubmitHandler)}
+            disabled={!!directors.find((director) => !director.directorName || !director.email)}
+          >
+            Next
+          </Button>
         </div>
       </div>
     </form>
