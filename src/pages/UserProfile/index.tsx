@@ -37,6 +37,9 @@ const UserProfile = (): JSX.Element => {
       setDob(dob);
       setIdNumber(idNumber);
       setImgFileDataURL(imgFileDataURL);
+      // the form need to reset and validate the form with the data, otherwise the form will validate
+      // with old empty state.
+      reset(userProfile);
     }
   }, [appContext.email]);
 
@@ -61,6 +64,7 @@ const UserProfile = (): JSX.Element => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IFormInput>({
     resolver: yupResolver(schema),
   });

@@ -64,7 +64,7 @@ const AppHeader = (): JSX.Element => {
     {
       label: 'Review',
       pathname: '/signup/application-review',
-      isCompleted: (userAccount: TUserAccount): boolean => userAccount.submitted,
+      isCompleted: (userAccount: TUserAccount): boolean => !!userAccount.submitted,
     },
   ];
 
