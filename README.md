@@ -2,14 +2,31 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to run the website
+ 1) run `yarn` to install required libraries
+ 2) run `yarn start` to start the project
+ 3) visit `http://localhost:3000/onboard` to the home page
+
+## Technical debts or things that can improve
+1) The project is using react context for share the logged in user's email across the app, can add seession storage to support refreshing the page. In real word, when refreshing page, will need to check if the user's authentication seesion.
+2) Could use redux store for the manage the shared status like the user account information.
+3) Could think about making more resuable form fields, but that needs more time to design the contract of the fields properly, otherwise it may be much more worse than using the native form fields according my experience. So did not choose to do that in a limited time.
+4) In this project, just wrote limited unit tests to give an idea what needs to be testd. Could write more unit tests to cover the routing, form validation, and mocking data for components.
+5) The styling part may still have space to be cleaned up, could use sass or bootstrap to reuse styles and make styling easier.
+6) Could make usuable component to make redirect easier instead of dealing with redirecting in individual page when authentication fails. 
+7) Since I am using the lastest react-route-dom v6 which is quite different with the old version which I used in my previous project, the routing part can be improved. 
+
 ## Available Scripts
 
 In the project directory, you can run:
 
+### `yarn`
+Install the required libraries
+ 
 ### `yarn start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000/onboard](http://localhost:3000/onboard) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
