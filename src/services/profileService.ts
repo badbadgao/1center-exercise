@@ -98,7 +98,6 @@ export const submitApplication = (email: string): void => {
     console.error('Failed to update user profile', e);
     return undefined;
   }
-  console.log('Submit Successfully');
 };
 
 export const login = (email: string, password: string): TUserAccount | undefined => {
