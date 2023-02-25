@@ -83,7 +83,7 @@ const CreateAccount = (): JSX.Element => {
           </div>
           {/* <-- password field --> */}
           <div className="form__field">
-            <label className="form__label" htmlFor="email">
+            <label className="form__label" htmlFor="password">
               Create password
             </label>
             <input
@@ -106,7 +106,7 @@ const CreateAccount = (): JSX.Element => {
           </div>
           {/* <-- confirm password field --> */}
           <div className="form__field">
-            <label className="form__label" htmlFor="email">
+            <label className="form__label" htmlFor="confirmPassword">
               Confirm password
             </label>
             <input
